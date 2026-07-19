@@ -1,0 +1,188 @@
+/* Gameplay surfaces: oversized timer and card, large touch actions. */
+
+.wl-game {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  min-height: calc(100dvh - 3.75rem);
+}
+
+/* Timer -------------------------------------------------------------------- */
+.wl-timer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.wl-timer__value {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--weight-black);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+  font-size: var(--text-4xl);
+  color: var(--ink);
+}
+.wl-timer__value--warning {
+  color: var(--status-penalty);
+}
+.wl-timer__track {
+  height: 4px;
+  background: var(--surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.wl-timer__fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width var(--motion-base) linear;
+}
+.wl-timer__fill--warning {
+  background: var(--status-penalty);
+}
+
+/* Card --------------------------------------------------------------------- */
+.wl-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  text-align: center;
+  padding: clamp(1.5rem, 6vw, 3.5rem) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+}
+.wl-card__word {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-black);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.wl-card__forbidden {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: min(24rem, 100%);
+}
+.wl-card__forbidden-item {
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--hairline);
+  font-size: var(--text-lg);
+  color: var(--ink-2);
+}
+.wl-card__forbidden-item:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+.wl-card__meta {
+  display: flex;
+  gap: var(--space-2);
+}
+
+/* Action bar --------------------------------------------------------------- */
+.wl-actions {
+  position: sticky;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  padding-bottom: max(0px, env(safe-area-inset-bottom));
+}
+.wl-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: 4.5rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-size: var(--text-sm);
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    border-color var(--motion-fast) var(--ease-standard),
+    transform var(--motion-fast) var(--ease-standard);
+}
+.wl-action:not(:disabled):active {
+  transform: translateY(1px);
+}
+.wl-action:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.wl-action__key {
+  font-size: var(--text-2xs);
+  color: var(--faint);
+  letter-spacing: var(--tracking-normal);
+  text-transform: none;
+}
+.wl-action--correct:not(:disabled):hover {
+  border-color: var(--status-correct);
+  color: var(--status-correct);
+}
+.wl-action--skip:not(:disabled):hover {
+  border-color: var(--status-skip);
+  color: var(--status-skip);
+}
+.wl-action--penalty:not(:disabled):hover {
+  border-color: var(--status-penalty);
+  color: var(--status-penalty);
+}
+
+/* Handoff ------------------------------------------------------------------ */
+.wl-handoff {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+  text-align: center;
+  min-height: calc(100dvh - 10rem);
+}
+
+/* Scoreboard --------------------------------------------------------------- */
+.wl-scoreboard {
+  width: 100%;
+  border-collapse: collapse;
+}
+.wl-scoreboard th,
+.wl-scoreboard td {
+  text-align: left;
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--hairline);
+}
+.wl-scoreboard th {
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-caps);
+  color: var(--muted);
+  font-weight: var(--weight-semibold);
+}
+.wl-scoreboard td.wl-num,
+.wl-scoreboard th.wl-num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.wl-scoreboard tr[data-leader="true"] td {
+  font-weight: var(--weight-bold);
+}
+.wl-scoreboard__rank {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Big score readout on results */
+.wl-final-score {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-black);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+}

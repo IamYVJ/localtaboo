@@ -1,0 +1,82 @@
+/* Typography — the primary visual element. Large editorial headings, tight tracking. */
+
+.wl-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.wl-display {
+  font-size: var(--text-display);
+  font-weight: var(--weight-black);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.wl-h1 {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.wl-h2 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  text-wrap: balance;
+}
+
+.wl-h3 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+}
+
+.wl-h4 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.wl-lede {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-2);
+  max-width: var(--measure);
+}
+
+.wl-body {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--ink-2);
+  max-width: var(--measure);
+}
+
+.wl-small {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  color: var(--muted);
+}
+
+.wl-caption {
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--muted);
+}
+
+.wl-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.wl-numeral {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-tight);
+}
